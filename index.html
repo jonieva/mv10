@@ -3,87 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Luxury Estate | Vacation Rental</title>
+    <title>The Grand Escape | Luxury Vacation Home</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css">
     
     <style>
         :root { --gold: #c5a059; --dark: #1a1a1a; --light: #f9f9f9; --text: #444; }
         * { box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; margin: 0; background-color: var(--light); color: var(--text); scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; margin: 0; background: var(--light); color: var(--text); line-height: 1.6; }
 
-        /* Hero Section */
+        /* Header / Hero */
         .hero {
-            height: 70vh;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('5023676_0_3.jpg') no-repeat center center/cover;
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('5023676_0_3.jpg') no-repeat center center/cover;
             display: flex; align-items: center; justify-content: center; color: white; text-align: center;
         }
-        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 8vw, 4rem); margin: 0; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 8vw, 4.5rem); margin: 0; }
 
-        .container { max-width: 1100px; margin: auto; padding: 40px 20px; }
+        .container { max-width: 1100px; margin: auto; padding: 60px 20px; }
         
-        /* Gallery Grid */
+        /* Intro Section */
+        .section-header { text-align: center; margin-bottom: 50px; }
+        .section-header h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--dark); margin-bottom: 10px; }
+        .gold-divider { width: 60px; height: 3px; background: var(--gold); margin: 0 auto; }
+
+        /* Professional Gallery */
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            grid-gap: 15px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-gap: 20px;
+            margin-bottom: 80px;
         }
-        /* Style the links to act as image containers */
         .gallery a {
             display: block;
             height: 250px;
             overflow: hidden;
-            border-radius: 4px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
         .gallery img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            width: 100%; height: 100%; object-fit: cover;
             transition: transform 0.5s ease;
-            cursor: zoom-in;
         }
-        .gallery img:hover { transform: scale(1.08); }
+        .gallery a:hover img { transform: scale(1.1); }
 
+        /* Features & Map Grid */
         .info-grid {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 40px; 
-            margin-top: 60px; background: white; padding: 30px; border-radius: 8px;
-        }
-        .map-container { position: relative; padding-bottom: 60%; height: 0; overflow: hidden; border-radius: 4px; }
-        .map-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-
-        .cta-box { text-align: center; padding: 50px 20px; background: var(--dark); color: white; margin-top: 40px; border-radius: 8px; }
-        .btn {
-            display: inline-block; background: var(--gold); color: white; padding: 15px 35px;
-            text-decoration: none; font-weight: 600; border-radius: 50px; margin-top: 20px;
-        }
-
-        @media (max-width: 768px) { .info-grid { grid-template-columns: 1fr; } }
-    </style>
-</head>
-<body>
-
-    <section class="hero">
-        <div class="hero-content">
-            <h1>The Grand Escape</h1>
-            <p style="letter-spacing: 3px;">LUXURY VACATION RENTAL</p>
-        </div>
-    </section>
-
-    <div class="container">
-        <h2 style="font-family: 'Playfair Display', serif; text-align: center;">Property Gallery</h2>
-        <p style="text-align: center; margin-bottom: 40px;">Click any image to view full screen</p>
-
-        <div class="gallery">
-            <a href="5023676_1_3.jpg"><img src="5023676_1_3.jpg" alt="Living Room"></a>
-            <a href="5023676_2_3.jpg"><img src="5023676_2_3.jpg" alt="Dining"></a>
-            <a href="5023676_3_3.jpg"><img src="5023676_3_3.jpg" alt="Kitchen"></a>
-            <a href="5023676_4_3.jpg"><img src="5023676_4_3.jpg" alt="Bedroom 1"></a>
-            <a href="5023676_5_3.jpg"><img src="5023676_5_3.jpg" alt="Bedroom 2"></a>
-            <a href="5023676_6_3.jpg"><img src="5023676_6_3.jpg" alt="Bath"></a>
-            <a href="5023676_7_3.jpg"><img src="5023676_7_3.jpg" alt="Lounge"></a>
-            <a href="5023676_8_3.jpg"><img src="5023676_8_3.jpg" alt="Backyard"></a>
-            <a href="5023676_9_3.jpg"><img src="5023676_9_3.jpg" alt="Patio"></a>
-            <a href="5023676_10_3.jpg"><img src="5023676_10_3.jpg" alt="Front Exterior"></a>
-            <a href="5023676_11_3.jpg"><img src="5023676_11_3.jpg" alt="Garden"></a>
-            <a href="5023676_12_3.jpg">
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+            background: white; padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0
