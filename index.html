@@ -3,113 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vacation Home Rental</title>
+    <title>Modern Luxury Estate | Vacation Rental</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            color: #333;
+        :root {
+            --gold: #c5a059;
+            --dark: #1a1a1a;
+            --light: #f9f9f9;
+            --text: #444;
         }
-        header {
-            background: #2c3e50;
+
+        * { box-sizing: border-box; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            margin: 0; 
+            background-color: var(--light); 
+            color: var(--text);
+            scroll-behavior: smooth;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                        url('5023676_0_3.jpg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: white;
-            padding: 1rem;
             text-align: center;
         }
-        .container {
-            width: 90%;
-            max-width: 800px;
-            margin: auto;
-            overflow: hidden;
-            padding: 20px 0;
+        .hero-content h1 { 
+            font-family: 'Playfair Display', serif; 
+            font-size: clamp(2.5rem, 8vw, 4.5rem); 
+            margin: 0;
         }
+        .hero-content p { font-size: 1.2rem; letter-spacing: 2px; text-transform: uppercase; }
+
+        /* Container */
+        .container { max-width: 1100px; margin: auto; padding: 60px 20px; }
+
+        /* Description */
+        .intro { text-align: center; max-width: 700px; margin: 0 auto 60px; }
+        .intro h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--dark); }
+
+        /* Responsive Gallery Grid */
         .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-gap: 20px;
         }
         .gallery img {
             width: 100%;
-            height: auto;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 4px;
+            transition: transform 0.4s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .gallery img:hover { transform: scale(1.02); }
+
+        /* Map & Info Section */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 60px;
+            background: white;
+            padding: 40px;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
-        .details {
-            margin-top: 20px;
-            padding: 20px;
-            background: #f4f4f4;
-            border-radius: 8px;
-        }
-        /* This part makes the Map responsive */
-        .map-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-            height: 0;
-            overflow: hidden;
-            margin-top: 20px;
-            border-radius: 8px;
-        }
-        .map-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100% !important;
-            height: 100% !important;
-        }
-        .cta-button {
-            display: block;
-            width: 200px;
-            margin: 20px auto;
-            padding: 15px;
-            background: #e74c3c;
-            color: white;
+        .map-container { position: relative; padding-bottom: 75%; height: 0; overflow: hidden; }
+        .map-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+        .cta-box {
             text-align: center;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
+            padding: 40px;
+            background: var(--dark);
+            color: white;
+            margin-top: 40px;
+            border-radius: 8px;
         }
-        @media(min-width: 600px) {
-            .gallery img {
-                width: 48%;
-            }
+        .btn {
+            display: inline-block;
+            background: var(--gold);
+            color: white;
+            padding: 18px 40px;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+        .btn:hover { background: #b08d48; transform: translateY(-3px); }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .info-grid { grid-template-columns: 1fr; }
+            .hero { height: 60vh; }
         }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Escape to Our Vacation Home</h1>
-</header>
+    <section class="hero">
+        <div class="hero-content">
+            <p>Welcome To</p>
+            <h1>The Grand Escape</h1>
+        </div>
+    </section>
 
-<div class="container">
-    <h2>Welcome to Paradise</h2>
-    <p>Experience ultimate relaxation in our beautiful vacation rental. Perfect for families, couples, or a solo retreat.</p>
+    <div class="container">
+        <div class="intro">
+            <h2>Luxury Living Awaits</h2>
+            <p>Experience breathtaking views and world-class comfort in this meticulously designed vacation home. Perfectly situated for those seeking both privacy and elegance.</p>
+        </div>
 
-    <div class="gallery">
-        <img src="5023676_4_3.jpg" alt="Living Area">
-        <img src="5023676_5_3.jpg" alt="Kitchen or Dining">
+        <div class="gallery">
+            <img src="5023676_1_3.jpg" alt="Interior View">
+            <img src="5023676_2_3.jpg" alt="Dining Area">
+            <img src="5023676_3_3.jpg" alt="Living Room">
+            <img src="5023676_4_3.jpg" alt="Kitchen">
+            <img src="5023676_5_3.jpg" alt="Bedroom">
+            <img src="5023676_6_3.jpg" alt="Bedroom Detail">
+            <img src="5023676_7_3.jpg" alt="Bathroom">
+            <img src="5023676_8_3.jpg" alt="Outdoor Space">
+            <img src="5023676_9_3.jpg" alt="Patio">
+            <img src="5023676_10_3.jpg" alt="Exterior Front">
+            <img src="5023676_11_3.jpg" alt="Garden">
+            <img src="5023676_12_3.jpg" alt="View">
+        </div>
+
+        <div class="info-grid">
+            <div>
+                <h3>Location & Features</h3>
+                <p>Located in a premier neighborhood, our home offers:</p>
+                <ul>
+                    <li>Open-concept designer kitchen</li>
+                    <li>Premium linens and bedding</li>
+                    <li>Seamless indoor-outdoor living</li>
+                    <li>Proximity to local attractions</li>
+                </ul>
+            </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.733248043702!2d-118.441364!3d34.050688!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDAzJzAyLjUiTiAxMTjCsDI2JzI4LjkiVw!5e0!3m2!1sen!2sus!4v1620000000000" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+
+        <div class="cta-box">
+            <h2>Ready for your stay?</h2>
+            <p>Check availability and book your luxury experience today.</p>
+            <a href="mailto:your-email@example.com" class="btn">Inquire Now</a>
+        </div>
     </div>
 
-    <div class="details">
-        <h3>Property Highlights</h3>
-        <ul>
-            <li>Spacious living areas</li>
-            <li>Fully equipped kitchen</li>
-            <li>High-speed Wi-Fi</li>
-            <li>Close to local attractions</li>
-        </ul>
-    </div>
-
-    <h3>Location</h3>
-    <div class="map-container">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d838.9073795871643!2d-72.78821978048829!3d44.58961568754023!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDTCsDM1JzIzLjUiTiA3MsKwNDcnMTYuNiJX!5e0!3m2!1sen!2sus!4v1769646507653!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
-
-    <a href="mailto:your-email@example.com?subject=Vacation Rental Inquiry" class="cta-button">Book Your Stay</a>
-</div>
+    <footer style="text-align: center; padding: 40px; font-size: 0.8rem; color: #999;">
+        &copy; 2024 Luxury Vacation Rentals. All Rights Reserved.
+    </footer>
 
 </body>
 </html>
