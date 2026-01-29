@@ -3,71 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Grand Escape | Luxury Vacation Home</title>
+    <title>The Grand Escape | Luxury Vacation Rental</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
     <style>
-        :root { --gold: #c5a059; --dark: #1a1a1a; --light: #f9f9f9; --text: #444; }
-        * { box-sizing: border-box; }
-        body { font-family: sans-serif; margin: 0; background: var(--light); color: var(--text); line-height: 1.6; }
-
-        /* Header Area */
-        .hero {
-            height: 50vh;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('5023676_0_3.jpg') no-repeat center center/cover;
-            display: flex; align-items: center; justify-content: center; color: white; text-align: center;
+        :root {
+            --primary: #b38e5d;
+            --dark: #1a1a1a;
+            --white: #ffffff;
         }
-        .hero h1 { font-size: 3rem; margin: 0; }
 
-        .container { max-width: 1000px; margin: auto; padding: 40px 20px; }
-        
-        /* Grid Gallery */
-        .gallery {
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            background: var(--white);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Nav Bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+        .logo { font-weight: 700; font-size: 1.1rem; letter-spacing: 2px; color: var(--dark); text-transform: uppercase; }
+
+        /* Hero Section - Fixed to ensure image displays */
+        .hero-container {
+            position: relative;
+            width: 100%;
+            height: 80vh;
+            overflow: hidden;
+            background-color: #333; /* Fallback color */
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3); /* Darken image for text readability */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-overlay h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 10vw, 5rem); margin: 0; }
+        .hero-overlay p { font-size: 1.2rem; margin: 20px 0 30px; font-weight: 300; letter-spacing: 1px; }
+
+        /* Buttons */
+        .btn-large {
+            background: var(--primary);
+            color: white !important;
+            padding: 20px 50px;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 4px;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(179, 142, 93, 0.4);
+            border: none;
+        }
+        .btn-large:hover {
+            transform: translateY(-3px);
+            background: #a37d4d;
+        }
+
+        /* Layout */
+        .container { max-width: 1140px; margin: auto; padding: 60px 20px; }
+        .content-split { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+
+        /* Map wrapper */
+        .map-wrapper { border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+
+        /* Gallery */
+        .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            grid-gap: 15px;
-            margin: 40px 0;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+            margin-top: 40px;
         }
-        .gallery img {
-            width: 100%; height: 200px; object-fit: cover;
-            border-radius: 8px; cursor: pointer; transition: 0.3s;
-        }
-        .gallery img:hover { opacity: 0.8; }
+        .gallery-grid a { height: 280px; overflow: hidden; border-radius: 4px; display: block; }
+        .gallery-grid img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+        .gallery-grid a:hover img { transform: scale(1.08); }
 
-        /* Lightbox Overlay */
-        #lightbox {
-            display: none; position: fixed; z-index: 999; top: 0; left: 0;
-            width: 100%; height: 100%; background: rgba(0,0,0,0.9);
-            align-items: center; justify-content: center;
-        }
-        #lightbox img { max-width: 90%; max-height: 80%; border: 3px solid white; }
-        .close, .prev, .next {
-            position: absolute; color: white; font-size: 40px; 
-            font-weight: bold; cursor: pointer; user-select: none;
-        }
-        .close { top: 20px; right: 30px; }
-        .prev { left: 20px; }
-        .next { right: 20px; }
+        footer { background: var(--dark); color: white; padding: 60px 5%; text-align: center; margin-top: 60px; }
 
-        /* Content Sections */
-        .details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px; }
-        .cta { text-align: center; padding: 40px; background: var(--dark); color: white; border-radius: 8px; margin-top: 40px; }
-        .btn { display: inline-block; background: var(--gold); color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; }
-
-        @media (max-width: 768px) { .details-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 850px) {
+            .content-split { grid-template-columns: 1fr; }
+            .hero-container { height: 60vh; }
+        }
     </style>
 </head>
 <body>
 
-    <section class="hero">
-        <h1>The Grand Escape</h1>
-    </section>
+    <nav>
+        <div class="logo">The Grand Escape</div>
+        <a href="mailto:booking@example.com" class="btn-large" style="padding: 10px 20px; font-size: 0.8rem; box-shadow: none;">BOOK NOW</a>
+    </nav>
+
+    <div class="hero-container">
+        <img src="5023676_8_3.jpg" alt="Luxury Vacation Home" class="hero-image">
+        <div class="hero-overlay">
+            <h1>Escape to Luxury</h1>
+            <p>A Curated Retreat for the Discerning Traveler</p>
+            <a href="mailto:booking@example.com" class="btn-large">BOOK YOUR STAY</a>
+        </div>
+    </div>
 
     <div class="container">
-        <h2>Luxury Property Gallery</h2>
-        <p>Click any image to enlarge and browse.</p>
+        <div class="content-split">
+            <div>
+                <h2 style="font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-top: 0;">Unwind in Style</h2>
+                <p>Welcome to our premier residence. Designed for relaxation and elegance, our property offers a seamless blend of indoor and outdoor living.</p>
 
-        <div class="gallery">
-            <img src="5023676_1_3.jpg" onclick="openLightbox();currentSlide(1)">
-            <img src="5023676_2_3.jpg" onclick="openLightbox();currentSlide(2)">
-            <img src="5023676_3_3.jpg" onclick="openLightbox();currentSlide(3)">
-            <img src="5023676_4_3.jpg" onclick="openLightbox();currentSlide(4)">
-            <img src="5023676_5_3.jpg" onclick="openLightbox();currentSlide
+                <ul style="padding-left: 20px;">
+                    <li>3 Designer Bedrooms</li>
+                    <li>2.5 Modern Bathrooms</li>
+                    <li>Chef's Kitchen</li>
+                    <li>Fast Fiber Wi-Fi</li>
+                </ul>
+            </div>
+            <div class="map-wrapper">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d838.9073795871643!2d-72.78821978048829!3d44.58961568754023!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDTCsDM1JzIzLjUiTiA3MsKwNDcnMTYuNiJX!5e0!3m2!1sen!2sus!4v1769646507653!5m2!1sen!2sus" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+
+        <h2 style="text-align: center; font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-top: 80px;">Property Gallery</h2>
+        <div class="gallery-grid" id="gallery">
+            <a href="5023676_1_3.jpg"><img src="5023676_1_3.jpg" alt="Interior"></a>
+            <a href="5023676_2_3.jpg"><img src="5023676_2_3.jpg" alt="Dining"></a>
+            <a href="5023676_3_3.jpg"><img src="5023676_3_3.jpg" alt="Kitchen"></a>
+            <a href="5023676_4_3.jpg"><img src="5023676_4_3.jpg" alt="Bedroom 1"></a>
+            <a href="5023676_5_3.jpg"><img src="5023676_5_3.jpg" alt="Bedroom 2"></a>
+            <a href="5023676_8_3.jpg"><img src="5023676_8_3.jpg" alt="Patio View"></a>
+            <a href="5023676_10_3.jpg"><img src="5023676_10_3.jpg" alt="Front View"></a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="logo" style="color: white; margin-bottom: 20px;">The Grand Escape</div>
+        <p>©2024 All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js"></script>
+    <script>
+        window.addEventListener('load', function() {
+            baguetteBox.run('.gallery-grid', {
+                animation: 'fadeIn',
+                noScrollbars: true,
+                buttons: true
+            });
+        });
+    </script>
+</body>
+</html>
