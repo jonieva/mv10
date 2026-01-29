@@ -5,161 +5,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modern Luxury Estate | Vacation Rental</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css">
+    
     <style>
-        :root {
-            --gold: #c5a059;
-            --dark: #1a1a1a;
-            --light: #f9f9f9;
-            --text: #444;
-        }
-
+        :root { --gold: #c5a059; --dark: #1a1a1a; --light: #f9f9f9; --text: #444; }
         * { box-sizing: border-box; }
-        body { 
-            font-family: 'Inter', sans-serif; 
-            margin: 0; 
-            background-color: var(--light); 
-            color: var(--text);
-            scroll-behavior: smooth;
-        }
+        body { font-family: 'Inter', sans-serif; margin: 0; background-color: var(--light); color: var(--text); scroll-behavior: smooth; }
 
         /* Hero Section */
         .hero {
-            height: 80vh;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
-                        url('5023676_0_3.jpg') no-repeat center center/cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
+            height: 70vh;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('5023676_0_3.jpg') no-repeat center center/cover;
+            display: flex; align-items: center; justify-content: center; color: white; text-align: center;
         }
-        .hero-content h1 { 
-            font-family: 'Playfair Display', serif; 
-            font-size: clamp(2.5rem, 8vw, 4.5rem); 
-            margin: 0;
-        }
-        .hero-content p { font-size: 1.2rem; letter-spacing: 2px; text-transform: uppercase; }
+        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 8vw, 4rem); margin: 0; }
 
-        /* Container */
-        .container { max-width: 1100px; margin: auto; padding: 60px 20px; }
-
-        /* Description */
-        .intro { text-align: center; max-width: 700px; margin: 0 auto 60px; }
-        .intro h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--dark); }
-
-        /* Responsive Gallery Grid */
+        .container { max-width: 1100px; margin: auto; padding: 40px 20px; }
+        
+        /* Gallery Grid */
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            grid-gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-gap: 15px;
+        }
+        /* Style the links to act as image containers */
+        .gallery a {
+            display: block;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 4px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
         .gallery img {
             width: 100%;
-            height: 250px;
+            height: 100%;
             object-fit: cover;
-            border-radius: 4px;
-            transition: transform 0.4s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.5s ease;
+            cursor: zoom-in;
         }
-        .gallery img:hover { transform: scale(1.02); }
+        .gallery img:hover { transform: scale(1.08); }
 
-        /* Map & Info Section */
         .info-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-top: 60px;
-            background: white;
-            padding: 40px;
-            border-radius: 8px;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 40px; 
+            margin-top: 60px; background: white; padding: 30px; border-radius: 8px;
         }
-        .map-container { position: relative; padding-bottom: 75%; height: 0; overflow: hidden; }
+        .map-container { position: relative; padding-bottom: 60%; height: 0; overflow: hidden; border-radius: 4px; }
         .map-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
-        .cta-box {
-            text-align: center;
-            padding: 40px;
-            background: var(--dark);
-            color: white;
-            margin-top: 40px;
-            border-radius: 8px;
-        }
+        .cta-box { text-align: center; padding: 50px 20px; background: var(--dark); color: white; margin-top: 40px; border-radius: 8px; }
         .btn {
-            display: inline-block;
-            background: var(--gold);
-            color: white;
-            padding: 18px 40px;
-            text-decoration: none;
-            font-weight: 600;
-            border-radius: 50px;
-            margin-top: 20px;
-            transition: 0.3s;
+            display: inline-block; background: var(--gold); color: white; padding: 15px 35px;
+            text-decoration: none; font-weight: 600; border-radius: 50px; margin-top: 20px;
         }
-        .btn:hover { background: #b08d48; transform: translateY(-3px); }
 
-        /* Mobile Adjustments */
-        @media (max-width: 768px) {
-            .info-grid { grid-template-columns: 1fr; }
-            .hero { height: 60vh; }
-        }
+        @media (max-width: 768px) { .info-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
     <section class="hero">
         <div class="hero-content">
-            <p>Welcome To</p>
             <h1>The Grand Escape</h1>
+            <p style="letter-spacing: 3px;">LUXURY VACATION RENTAL</p>
         </div>
     </section>
 
     <div class="container">
-        <div class="intro">
-            <h2>Luxury Living Awaits</h2>
-            <p>Experience breathtaking views and world-class comfort in this meticulously designed vacation home. Perfectly situated for those seeking both privacy and elegance.</p>
-        </div>
+        <h2 style="font-family: 'Playfair Display', serif; text-align: center;">Property Gallery</h2>
+        <p style="text-align: center; margin-bottom: 40px;">Click any image to view full screen</p>
 
         <div class="gallery">
-            <img src="5023676_1_3.jpg" alt="Interior View">
-            <img src="5023676_2_3.jpg" alt="Dining Area">
-            <img src="5023676_3_3.jpg" alt="Living Room">
-            <img src="5023676_4_3.jpg" alt="Kitchen">
-            <img src="5023676_5_3.jpg" alt="Bedroom">
-            <img src="5023676_6_3.jpg" alt="Bedroom Detail">
-            <img src="5023676_7_3.jpg" alt="Bathroom">
-            <img src="5023676_8_3.jpg" alt="Outdoor Space">
-            <img src="5023676_9_3.jpg" alt="Patio">
-            <img src="5023676_10_3.jpg" alt="Exterior Front">
-            <img src="5023676_11_3.jpg" alt="Garden">
-            <img src="5023676_12_3.jpg" alt="View">
-        </div>
-
-        <div class="info-grid">
-            <div>
-                <h3>Location & Features</h3>
-                <p>Located in a premier neighborhood, our home offers:</p>
-                <ul>
-                    <li>Open-concept designer kitchen</li>
-                    <li>Premium linens and bedding</li>
-                    <li>Seamless indoor-outdoor living</li>
-                    <li>Proximity to local attractions</li>
-                </ul>
-            </div>
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.733248043702!2d-118.441364!3d34.050688!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDAzJzAyLjUiTiAxMTjCsDI2JzI4LjkiVw!5e0!3m2!1sen!2sus!4v1620000000000" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-        </div>
-
-        <div class="cta-box">
-            <h2>Ready for your stay?</h2>
-            <p>Check availability and book your luxury experience today.</p>
-            <a href="mailto:your-email@example.com" class="btn">Inquire Now</a>
-        </div>
-    </div>
-
-    <footer style="text-align: center; padding: 40px; font-size: 0.8rem; color: #999;">
-        &copy; 2024 Luxury Vacation Rentals. All Rights Reserved.
-    </footer>
-
-</body>
-</html>
+            <a href="5023676_1_3.jpg"><img src="5023676_1_3.jpg" alt="Living Room"></a>
+            <a href="5023676_2_3.jpg"><img src="5023676_2_3.jpg" alt="Dining"></a>
+            <a href="5023676_3_3.jpg"><img src="5023676_3_3.jpg" alt="Kitchen"></a>
+            <a href="5023676_4_3.jpg"><img src="5023676_4_3.jpg" alt="Bedroom 1"></a>
+            <a href="5023676_5_3.jpg"><img src="5023676_5_3.jpg" alt="Bedroom 2"></a>
+            <a href="5023676_6_3.jpg"><img src="5023676_6_3.jpg" alt="Bath"></a>
+            <a href="5023676_7_3.jpg"><img src="5023676_7_3.jpg" alt="Lounge"></a>
+            <a href="5023676_8_3.jpg"><img src="5023676_8_3.jpg" alt="Backyard"></a>
+            <a href="5023676_9_3.jpg"><img src="5023676_9_3.jpg" alt="Patio"></a>
+            <a href="5023676_10_3.jpg"><img src="5023676_10_3.jpg" alt="Front Exterior"></a>
+            <a href="5023676_11_3.jpg"><img src="5023676_11_3.jpg" alt="Garden"></a>
+            <a href="5023676_12_3.jpg">
